@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  smii_db:
+    image: timescale/timescaledb:latest-pg15
+    container_name: smii_db
+    environment:
+      - POSTGRES_PASSWORD=smartfactory
+      - POSTGRES_DB=smartfactory
+      - POSTGRES_USER=postgres
+    ports:
+      - "9432:5432"
+    networks:
+      - smii_net
+    volumes:
+      - ./db_data_local:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+
+networks:
+  smii_net:
+    external: true
