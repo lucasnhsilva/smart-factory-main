@@ -1,0 +1,23 @@
+services:
+  smii_db:
+    image: timescale/timescaledb:latest-pg15
+    container_name: smii_db
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD} # Pega das envs do Dokploy
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+    networks:
+      - smii_net
+      - dokploy-network
+    volumes:
+      - db_data_prod:/var/lib/postgresql/data
+
+volumes:
+  db_data_prod:
+
+networks:
+  smii_net:
+    external: true
+  dokploy-network:
+    external: true
