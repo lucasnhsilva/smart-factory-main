@@ -1,0 +1,9 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/lucasnhsilva/smart-factory-backend.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/lucasnhsilva/smart-factory-frontend.git
+[submodule "analytics"]
+	path = analytics
+	url = https://github.com/lucasnhsilva/smart-factory-analytics-server.git
